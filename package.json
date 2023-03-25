@@ -5,6 +5,7 @@
 	"main": "src/main.js",
 	"scripts": {
 		"dev": "obsidian-plugin dev src/main.ts",
+		"dev_backup": "node esbuild.config.mjs",
 		"build": "obsidian-plugin build src/main.ts",
 		"build_backup": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"

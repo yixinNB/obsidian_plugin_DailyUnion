@@ -1,11 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {createRoot} from "react-dom/client";
+import {createRoot, Root} from "react-dom/client";
 import {App, ItemView, WorkspaceLeaf} from 'obsidian';
+import {Kanban} from "../components/kanban";
 
 export const VIEW_TYPE_REACT="react"
 export const AppContext = React.createContext<App|undefined>(undefined);
 export class ReactView extends ItemView {
+	private root: Root;
 	constructor(leaf: WorkspaceLeaf) {
 		super(leaf);
 	}
@@ -19,15 +21,16 @@ export class ReactView extends ItemView {
 	}
 
 	async onOpen() {
-		const root = createRoot(this.containerEl.children[1]);
-		root.render(
+		this.root = createRoot(this.containerEl.children[1]);
+		this.root.render(
 			<React.StrictMode>
-				<h4>Hello, React!</h4>,
+				<Kanban/>
 			</React.StrictMode>
 		);
 	}
 
 	async onClose() {
+		this.root.unmount()
 		ReactDOM.unmountComponentAtNode(this.containerEl.children[1]);
 	}
 }
