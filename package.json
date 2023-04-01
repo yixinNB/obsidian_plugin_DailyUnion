@@ -22,6 +22,7 @@
 		"@babel/preset-typescript": "^7.21.0",
 		"@chakra-ui/anatomy": "^2.1.1",
 		"@chakra-ui/storybook-addon": "^4.0.16",
+		"@codemirror/language": "^6.6.0",
 		"@storybook/addon-actions": "^7.0.0-rc.8",
 		"@storybook/addon-essentials": "^7.0.0-rc.8",
 		"@storybook/addon-interactions": "^7.0.0-rc.8",
@@ -50,6 +51,8 @@
 	},
 	"dependencies": {
 		"@chakra-ui/react": "^2.5.4",
+		"@codemirror/state": "^6.2.0",
+		"@codemirror/view": "^6.9.3",
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
 		"framer-motion": "^10.10.0",

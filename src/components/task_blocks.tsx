@@ -2,16 +2,7 @@ import style from "./task_blocks.module.less"
 import * as React from "react";
 import {Avatar, AvatarGroup, createMultiStyleConfigHelpers, defineStyle, Tag} from "@chakra-ui/react";
 import { MoreVertical } from 'lucide-react';
-export function Test() {
-	return(
-		<>
-			<p>fa</p>
-			<p>aga</p>
-			<Task_blocks/>
-			<div>fff<p>ff</p></div>
-		</>
-	)
-}
+
 export function Task_blocks() {
 	return (
 		<div className={style.task_block} style={{position:"relative"}}>

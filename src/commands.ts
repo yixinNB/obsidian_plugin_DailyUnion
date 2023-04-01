@@ -1,4 +1,6 @@
 import {Notice, Plugin} from "obsidian";
+import {EditorView} from "@codemirror/view";
+import {add, reset} from './stateField';
 
 export function addCommands(plugin:Plugin) {
 	plugin.addCommand({
