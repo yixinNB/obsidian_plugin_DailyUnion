@@ -1,4 +1,4 @@
-import {Task_blocks} from "./task_blocks";
+import {Task_blocks, Test} from "./task_blocks";
 
 export default {
 	title: "Task_blocks",
@@ -6,3 +6,4 @@ export default {
 }
 
 export const Default = () => <Task_blocks/>
+export const test=()=><Test></Test>
