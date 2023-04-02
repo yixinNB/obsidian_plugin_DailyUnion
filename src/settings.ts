@@ -1,16 +1,18 @@
-// Remember to rename these classes and interfaces!
 import {App, PluginSettingTab, Setting} from "obsidian";
 import DailyUnion from "./main";
+import {interface_taskData} from "./data_container";
 
-export interface MyPluginSettings {
+export interface DailyUnionPluginSettings {
 	mySetting: string;
+	task_data: interface_taskData;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
-	mySetting: 'default'
+export const DEFAULT_SETTINGS: DailyUnionPluginSettings = {
+	mySetting: 'default',
+	task_data: {}
 }
 
-export class SampleSettingTab extends PluginSettingTab {
+export class DailyUnionSettingTab extends PluginSettingTab {
 	plugin: DailyUnion;
 
 	constructor(app: App, plugin: DailyUnion) {
@@ -20,7 +22,6 @@ export class SampleSettingTab extends PluginSettingTab {
 
 	display(): void {
 		const {containerEl} = this;
-
 		containerEl.empty();
 
 		containerEl.createEl('h2', {text: 'Settings for my awesome plugin.'});

@@ -1,25 +1,33 @@
-import {Editor, MarkdownView, Plugin} from 'obsidian';
-import {DEFAULT_SETTINGS, MyPluginSettings, SampleSettingTab,} from "./settings";
+import {Plugin} from 'obsidian';
+import {
+	DEFAULT_SETTINGS,
+	DailyUnionPluginSettings,
+	DailyUnionSettingTab,
+} from "./settings";
 import {addCommands} from "./commands";
-import {activateView_centerLeaf, activateView_rightLeaf, register_Views, unregister_Views} from "./views/register";
-import {VIEW_TYPE_EXAMPLE} from "./views/exampleView";
-import {VIEW_TYPE_REACT} from "./views/reactView";
-import {activatedEditorView, updateMDView} from "./MDView";
-import {zebraStripes} from "./example";
+import {register_Views, unregister_Views} from "./views/register";
+import {activatedEditorView, activatedView, updateMDView} from "./MDView";
+import {myMDExtension} from "./view_plugin";
+import {dataContainor, init_dataContainer} from "./data_container";
+import {checkRow_is_DailyUnion} from "./obsidian_md_helper";
 
 export default class DailyUnion extends Plugin {
-	settings: MyPluginSettings;
+	settings: DailyUnionPluginSettings;
 
 	async onload() {
 		await this.loadSettings();
-		this.addSettingTab(new SampleSettingTab(this.app, this));
+		this.addSettingTab(new DailyUnionSettingTab(this.app, this));
 		addCommands(this)
 		register_Views(this)
 		this.addRibbonIcon("bug", "debug", () => {
 			// activateView_centerLeaf(this,VIEW_TYPE_REACT)
-
+			console.log(dataContainor.taskdata)
 		});
-		this.registerEditorExtension(zebraStripes())
+		this.registerEditorExtension(myMDExtension())
+		init_dataContainer(this)
+		this.registerEvent(this.app.workspace.on("editor-change", ()=>{
+			checkRow_is_DailyUnion()
+		}))
 
 		updateMDView(this)
 		this.registerEvent(this.app.workspace.on("active-leaf-change", ()=>{
