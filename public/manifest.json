@@ -1,0 +1,11 @@
+{
+	"id": "DailyUnion",
+	"name": "DailyUnion",
+	"version": "0.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "This is a sample plugin for Obsidian. This plugin demonstrates some of the capabilities of the Obsidian API.",
+	"author": "Y.\uD83D\uDC41️X.",
+	"authorUrl": "https://github.com/yixinNB/obsidian_plugin_DailyUnion",
+	"fundingUrl": "https://github.com/yixinNB/obsidian_plugin_DailyUnion",
+	"isDesktopOnly": false
+}

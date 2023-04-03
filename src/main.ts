@@ -7,7 +7,6 @@ import {VIEW_TYPE_REACT} from "./views/reactView";
 
 export default class DailyUnion extends Plugin {
 	settings: MyPluginSettings;
-
 	async onload() {
 		await this.loadSettings();
 		this.addSettingTab(new SampleSettingTab(this.app, this));
