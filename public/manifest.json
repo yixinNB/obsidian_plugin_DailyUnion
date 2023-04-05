@@ -1,0 +1,11 @@
+{
+	"id": "DailyUnion",
+	"name": "DailyUnion",
+	"version": "0.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "E-mail notification of tasks/beautiful task manager",
+	"author": "✨Y.\uD83C\uDF0CX.",
+	"authorUrl": "https://github.com/yixinNB/obsidian_plugin_DailyUnion",
+	"fundingUrl": "https://github.com/yixinNB/obsidian_plugin_DailyUnion",
+	"isDesktopOnly": false
+}

@@ -7,13 +7,17 @@ import {
 import {addCommands} from "./commands";
 import {register_Views, unregister_Views} from "./views/register";
 import {activatedEditorView, activatedView, updateMDView} from "./MDView";
-// import {myMDExtension} from "./view_plugin";
+import {myMDExtension} from "./view_plugin";
 import {dataContainor, init_dataContainer} from "./data_container";
 import {checkRow_is_DailyUnion} from "./obsidian_md_helper";
 
 export default class DailyUnion extends Plugin {
+<<<<<<< HEAD
 	settings: DailyUnionPluginSettings;
 
+=======
+	settings: MyPluginSettings;
+>>>>>>> origin/dev
 	async onload() {
 		await this.loadSettings();
 		this.addSettingTab(new DailyUnionSettingTab(this.app, this));
@@ -23,7 +27,7 @@ export default class DailyUnion extends Plugin {
 			// activateView_centerLeaf(this,VIEW_TYPE_REACT)
 			console.log(dataContainor.taskdata)
 		});
-		// this.registerEditorExtension(myMDExtension())
+		this.registerEditorExtension(myMDExtension())
 		init_dataContainer(this)
 		this.registerEvent(this.app.workspace.on("editor-change", ()=>{
 			checkRow_is_DailyUnion()

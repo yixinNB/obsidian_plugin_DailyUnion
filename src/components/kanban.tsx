@@ -20,7 +20,7 @@ function Board() {
 	//todo grammer: ()=>()
 	const [{isOver},drop]=useDrop(()=>({
 		accept:"type_name",
-		drop:(item)=>addItem(item.id),
+		drop:(item:any)=>addItem(item.id),
 		collect:(monitor)=>({
 			isOver: monitor.isOver()
 		})
