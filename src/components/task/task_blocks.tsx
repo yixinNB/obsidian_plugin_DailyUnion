@@ -1,14 +1,13 @@
 import style from "./task_blocks.module.less"
-import * as React from "react";
 import {
 	Avatar,
 	AvatarGroup,
 	Checkbox,
 	Tag,
-	useBoolean
+	useBoolean,
+	ChakraProvider
 } from "@chakra-ui/react";
-import {MoreVertical} from 'lucide-react';
-import {dataContainor} from "../data_container";
+import {dataContainor} from "../../data_container";
 
 export class Task_blocks_ob_data_handler {
 	test_default: boolean
@@ -52,6 +51,7 @@ export function Task_blocks({data, show_what}) {
 	}
 
 	return (
+		<ChakraProvider>
 		<div className={style.task_block} style={{position: "relative"}}>
 			<p style={{paddingBottom: "4px"}}>
 				<Checkbox isChecked={check_state} onChange={toggle_status} colorScheme='green'
@@ -80,8 +80,9 @@ export function Task_blocks({data, show_what}) {
 					</div>
 				}
 			</p>
-			<MoreVertical className={style.menu} size={15}/>
+			{/*<MoreVertical className={style.menu} size={15}/>*/}
 		</div>
+		</ChakraProvider>
 	)
 }
 

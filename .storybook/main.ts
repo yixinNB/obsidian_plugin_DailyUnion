@@ -2,20 +2,17 @@ import type {StorybookConfig} from "@storybook/react-vite";
 
 const config: StorybookConfig = {
 	stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
-	addons: [
-		"@storybook/addon-links",
-		"@storybook/addon-essentials",
-		"@storybook/addon-interactions",
-	],
+	addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-interactions", "@chakra-ui/storybook-addon", "storybook-preset-less", "@storybook/addon-mdx-gfm"],
 	framework: {
 		name: "@storybook/react-vite",
-		options: {},
+		options: {}
 	},
 	core: {
-		disableTelemetry: true, // 👈 Disables telemetry
+		disableTelemetry: true // 👈 Disables telemetry
 	},
+
 	docs: {
-		autodocs: "tag",
-	},
+		autodocs: "tag"
+	}
 };
 export default config;

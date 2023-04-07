@@ -1,9 +1,10 @@
-export function randomString(length=5) {
+export function randomString(length = 6) {
 	let result = '';
-	const chars='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	for (let i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length+0.99)];
+	const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	for (let i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length + 0.99)];
 	return result;
 }
+
 export const getCurrentTime = () => {
 	let _time = new Date()
 	let y = String(_time.getFullYear())
@@ -12,7 +13,7 @@ export const getCurrentTime = () => {
 	let hh = String(_time.getHours() < 10 ? '0' + _time.getHours() : _time.getHours())
 	let mm = String(_time.getMinutes() < 10 ? '0' + _time.getMinutes() : _time.getMinutes())
 	let ss = String(_time.getSeconds() < 10 ? '0' + _time.getSeconds() : _time.getSeconds())
-	return { y, m, d, hh, mm, ss, }
+	return {y, m, d, hh, mm, ss,}
 }
 
 // export function getStandardTime() {

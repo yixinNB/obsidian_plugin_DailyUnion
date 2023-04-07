@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import {createRoot, Root} from "react-dom/client";
 import {App, ItemView, WorkspaceLeaf} from 'obsidian';
 import {Kanban} from "../components/kanban";
+import {Default} from '../components/task/task_blocks.stories'
 
 export const VIEW_TYPE_REACT="react"
 export const AppContext = React.createContext<App|undefined>(undefined);
@@ -24,7 +25,8 @@ export class ReactView extends ItemView {
 		this.root = createRoot(this.containerEl.children[1]);
 		this.root.render(
 			<React.StrictMode>
-				<Kanban/>
+				{/*<Kanban/>*/}
+				<Default/>
 			</React.StrictMode>
 		);
 	}

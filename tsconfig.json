@@ -18,7 +18,7 @@
 			"ES6",
 			"ES7"
 		],
-		"jsx": "react",
+		"jsx": "react-jsx",
 		"strict": false,
 		"declaration": true,
 		"esModuleInterop": true,
@@ -27,5 +27,6 @@
 	},
 	"include": [
 		"**/*.ts",
-	]
+		"**/*.module.less"
+	],
 }

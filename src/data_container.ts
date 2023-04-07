@@ -9,6 +9,7 @@ export interface interface_taskData {
 		content:string,
 		status:string,
 		createTime:number,
+		finishTime:number,
 	}
 }
 
@@ -29,7 +30,7 @@ class class_dataContainer {
 	}
 	create(){
 		let id=randomString()
-		this.taskdata[id]={content:"",status:"scheduled",createTime:Date.now()}
+		this.taskdata[id]={content:"",status:"scheduled",createTime:Date.now(),finishTime:0}
 		this.taskdata=this.taskdata//the row above can't save it
 		return id
 	}
@@ -38,6 +39,7 @@ class class_dataContainer {
 	}
 	edit_status(id:string,status:string){
 		this.taskdata[id].status=status
+		this.taskdata[id].finishTime=Date.now()
 	}
 }
 

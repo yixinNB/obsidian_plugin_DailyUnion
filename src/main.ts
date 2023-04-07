@@ -5,11 +5,13 @@ import {
 	DailyUnionSettingTab,
 } from "./settings";
 import {addCommands} from "./commands";
-import {register_Views, unregister_Views} from "./views/register";
+import {activateView_centerLeaf, register_Views, unregister_Views} from "./views/register";
 import {activatedEditorView, activatedView, updateMDView} from "./MDView";
-// import {myMDExtension} from "./view_plugin";
+import {myMDExtension} from "./view_plugin";
 import {dataContainor, init_dataContainer} from "./data_container";
 import {checkRow_is_DailyUnion} from "./obsidian_md_helper";
+import {Task_editor_Modal} from "./components/task/task_editor";
+import {VIEW_TYPE_REACT} from "./views/reactView";
 
 export default class DailyUnion extends Plugin {
 	settings: DailyUnionPluginSettings;
@@ -20,10 +22,11 @@ export default class DailyUnion extends Plugin {
 		addCommands(this)
 		register_Views(this)
 		this.addRibbonIcon("bug", "debug", () => {
-			// activateView_centerLeaf(this,VIEW_TYPE_REACT)
-			console.log(dataContainor.taskdata)
+			activateView_centerLeaf(this,VIEW_TYPE_REACT)
+			// console.log(dataContainor.taskdata)
+			// new Task_editor_Modal(this.app).open()
 		});
-		// this.registerEditorExtension(myMDExtension())
+		this.registerEditorExtension(myMDExtension())
 		init_dataContainer(this)
 		this.registerEvent(this.app.workspace.on("editor-change", ()=>{
 			checkRow_is_DailyUnion()
