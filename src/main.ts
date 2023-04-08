@@ -10,7 +10,6 @@ import {activatedEditorView, activatedView, updateMDView} from "./MDView";
 import {myMDExtension} from "./view_plugin";
 import {dataContainor, init_dataContainer} from "./data_container";
 import {checkRow_is_DailyUnion} from "./obsidian_md_helper";
-import {Task_editor_Modal} from "./components/task/task_editor";
 import {VIEW_TYPE_REACT} from "./views/reactView";
 
 export default class DailyUnion extends Plugin {

@@ -1,7 +1,7 @@
 import {Kanban} from "./kanban";
 
 export default {
-	title: "test",
+	title: "kanban test",
 	component: Kanban,
 }
 export const Default = () => <Kanban/>

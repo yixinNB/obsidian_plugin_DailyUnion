@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import {createRoot, Root} from "react-dom/client";
 import {App, ItemView, WorkspaceLeaf} from 'obsidian';
 import {Kanban} from "../components/kanban";
-import {Default} from '../components/task/task_blocks.stories'
+import {Default} from '../components/task_block.stories'
 
 export const VIEW_TYPE_REACT="react"
 export const AppContext = React.createContext<App|undefined>(undefined);
