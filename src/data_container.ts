@@ -1,47 +1,113 @@
 import DailyUnion from "./main";
 import {randomString} from "./utils/utils";
-export let dataContainor:class_dataContainer
+
+//[init later] export let dataContainer: dataContainer_interface = new class_dataContainer_test()
+
 export function init_dataContainer(plugin: DailyUnion) {
-	dataContainor=new class_dataContainer(plugin)
+	dataContainer = new class_dataContainer(plugin)
 }
+
+interface dataContainer_interface {
+	// get taskData(),
+	// set taskData(),
+	query(id: string),
+	create(),
+	updateContent(id: string, content: string),
+	updateStatus(id: string, status: string),
+}
+
 export interface interface_taskData {
-	[id:string]:{
-		content:string,
-		status:string,
-		createTime:number,
-		finishTime:number,
+	[id: string]: {
+		content: string,
+		status: string,
+		createTime: number,
+		finishTime: number,
 	}
 }
 
-class class_dataContainer {
-	plugin:DailyUnion
-	constructor(plugin:DailyUnion) {
-		this.plugin=plugin
+class class_dataContainer implements dataContainer_interface {
+	plugin: DailyUnion
+
+	constructor(plugin?: DailyUnion) {
+		if (plugin) return
+		this.plugin = plugin
 	}
-	get taskdata(){
+
+	private get taskData() {
 		return this.plugin.settings.task_data
 	}
-	set taskdata(value) {
-		this.plugin.settings.task_data=value
+
+	private set taskData(value) {
+		this.plugin.settings.task_data = value
 		this.plugin.saveSettings()
 	}
-	query(id:string){
-		return this.taskdata[id]
+
+	query(id: string) {
+		return this.taskData[id]
 	}
-	create(){
-		let id=randomString()
-		this.taskdata[id]={content:"",status:"scheduled",createTime:Date.now(),finishTime:0}
-		this.taskdata=this.taskdata//the row above can't save it
+
+	create() {
+		let id = randomString()
+		this.taskData[id] = {content: "", status: "scheduled", createTime: Date.now(), finishTime: 0}
+		this.taskData = this.taskData//the row above can't save it
 		return id
 	}
-	edit_content(id:string,content:string){
-		this.taskdata[id].content=content
+
+	updateContent(id: string, content: string) {
+		console.log(content)
+		this.taskData[id].content = content
 	}
-	edit_status(id:string,status:string){
-		this.taskdata[id].status=status
-		this.taskdata[id].finishTime=Date.now()
+
+	updateStatus(id: string, status: string) {
+		this.taskData[id].status = status
+		this.taskData[id].finishTime = Date.now()
 	}
 }
 
 
+class class_dataContainer_test implements dataContainer_interface {
+	taskData = {
+		"test": {
+			"content": "test",
+			"status": "scheduled",
+			"createTime": 1680707086286
+		},
+		"ZXP1Fp": {
+			"content": "",
+			"status": "scheduled",
+			"createTime": 1680707708230
+		},
+		"4jCmZB": {
+			"content": "",
+			"status": "scheduled",
+			"createTime": 1680797090535,
+			"finishTime": 0
+		},
+	}
 
+	override constructor() {
+		console.log("dataContainer:isTest=true")
+	}
+
+	override query(id: string) {
+		return this.taskData[id]
+	}
+
+	create() {
+		let id = randomString()
+		this.taskData[id] = {content: "", status: "scheduled", createTime: Date.now(), finishTime: 0}
+		return id
+	}
+
+	updateContent(id: string, content: string) {
+		console.log(this.taskData)
+		this.taskData[id]!.content = content
+	}
+
+	updateStatus(id: string, status: string) {
+		this.taskData[id].status = status
+		this.taskData[id].finishTime = Date.now()
+	}
+}
+
+export let dataContainer: dataContainer_interface = new class_dataContainer_test()

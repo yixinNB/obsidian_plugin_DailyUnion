@@ -6,10 +6,10 @@ import {
 	Tag,
 	useBoolean,
 } from "@chakra-ui/react";
-import {interface_show_what, Task_blocks_ob_data_handler} from "./objects";
+import {interface_show_what, TaskBlocks_data_handler} from "./objects";
 
 interface Task_block_component_normal_interface {
-	data: Task_blocks_ob_data_handler,
+	data: TaskBlocks_data_handler,
 	show_what: interface_show_what
 }
 
@@ -27,7 +27,7 @@ export function Task_block_component_normal({data, show_what}: Task_block_compon
 				<Checkbox isChecked={check_state} onChange={toggle_status} colorScheme='green'
 				          className={style.checkbox}/>
 				<span onClick={toggle_status} style={check_state ? {textDecoration: "line-through"} : {}}>
-					{data.task_content}
+					{data.taskContent_cache}
 				</span>
 			</div>
 			<div className={style.tagline} style={(!show_what.time && !show_what.project) ? {display: "none"} : {}}>

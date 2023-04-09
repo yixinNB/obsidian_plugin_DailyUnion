@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {createRoot, Root} from "react-dom/client";
 import {App, ItemView, WorkspaceLeaf} from 'obsidian';
-import {Kanban} from "../components/kanban";
+import {Kanban} from "../components/taskBoard/kanban";
 import {Default} from '../components/task_block.stories'
 
 export const VIEW_TYPE_REACT="react"

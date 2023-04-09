@@ -8,7 +8,7 @@ import {addCommands} from "./commands";
 import {activateView_centerLeaf, register_Views, unregister_Views} from "./views/register";
 import {activatedEditorView, activatedView, updateMDView} from "./MDView";
 import {myMDExtension} from "./view_plugin";
-import {dataContainor, init_dataContainer} from "./data_container";
+import {dataContainer, init_dataContainer} from "./data_container";
 import {checkRow_is_DailyUnion} from "./obsidian_md_helper";
 import {VIEW_TYPE_REACT} from "./views/reactView";
 

@@ -1,27 +1,23 @@
-import {dataContainor} from "../../data_container";
+import {dataContainer} from "../../data_container";
 
-export class Task_blocks_ob_data_handler {
-	test_default: boolean
+export class TaskBlocks_data_handler {
 	id: string;
-	task_content
+	taskContent_cache: string = "undefined"
 	status
 
-	constructor(id = "test_default") {
-		if (id == "test_default") {
-			this.test_default = true
-			this.status = "scheduled"
-			this.task_content = "test task contentffffffffffffffffffffffffffff"
-		} else {
-			this.id = id
-			const task = dataContainor.query(id)
-			this.status = task.status
-			this.task_content = task.content
-		}
+	constructor(id = "test") {
+		this.id = id
+		const task = dataContainer.query(id)
+		this.status = task.status
+		this.taskContent_cache = task.content
+	}
+
+	updateTask() {
+		dataContainer.updateContent(this.id, this.taskContent_cache)
 	}
 
 	toggleStatus() {
-		if (this.test_default) return
-		dataContainor.edit_status(this.id, this.status ? "scheduled" : "done")//todo add if(), change "schedule"
+		dataContainer.updateStatus(this.id, this.status ? "scheduled" : "done")//todo add if(), change "schedule"
 	}
 }
 

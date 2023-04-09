@@ -1,9 +1,11 @@
 import {BeautifulTextArea} from "../beautifulTextArea/beautifulTextArea";
+import {TaskBlocks_data_handler} from "./objects";
 
-export function Task_block_component_edit() {
+
+export function Task_block_component_edit({data}:{data:TaskBlocks_data_handler}) {
 	return (
 		<div>
-			<BeautifulTextArea/>
+			<BeautifulTextArea  data={data}/>
 		</div>
 	)
 }
