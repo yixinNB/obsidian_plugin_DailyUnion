@@ -1,8 +1,24 @@
-import {Task_block_component_normal} from "./task_block/normal";
 import * as React from "react";
-
-export function Task_blocks_md({data, show_what}) {
+import {Task_block_base} from "./task_block";
+import {interface_show_what} from "./task_block/objects";
+const showWhat_all: interface_show_what = {
+	checkBox: true,
+	time: true,
+	project: true,
+	status: true,
+	coWorkers: true,
+}
+const showWhat_md: interface_show_what = {
+	checkBox: true,
+	// status:true,
+}
+export function TaskBlocks_all({data}) {
 	return (
-		<Task_block_component_normal data={data} show_what={show_what}/>
+		<Task_block_base data={data} show_what={showWhat_all}/>
+	)
+}
+export function TaskBlocks_md({data}) {
+	return (
+		<Task_block_base data={data} show_what={showWhat_md}/>
 	)
 }

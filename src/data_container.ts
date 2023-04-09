@@ -8,8 +8,9 @@ export function init_dataContainer(plugin: DailyUnion) {
 }
 
 interface dataContainer_interface {
-	// get taskData(),
-	// set taskData(),
+	// get taskData?(),
+	// set taskData?(),
+	taskData:any
 	query(id: string),
 	create(),
 	updateContent(id: string, content: string),
@@ -73,13 +74,13 @@ class class_dataContainer_test implements dataContainer_interface {
 			"createTime": 1680707086286
 		},
 		"ZXP1Fp": {
-			"content": "",
+			"content": "task ZXP1Fp",
 			"status": "scheduled",
 			"createTime": 1680707708230
 		},
 		"4jCmZB": {
-			"content": "",
-			"status": "scheduled",
+			"content": "task 4jCmZB",
+			"status": "done",
 			"createTime": 1680797090535,
 			"finishTime": 0
 		},
