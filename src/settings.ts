@@ -1,14 +1,17 @@
 import {App, PluginSettingTab, Setting} from "obsidian";
 import DailyUnion from "./main";
 import {interface_taskData} from "./data_container";
+import {dataVersion_plugin} from "./dataMigration/handler";
 
 export interface DailyUnionPluginSettings {
 	mySetting: string;
+	dataVersion:number;
 	task_data: interface_taskData;
 }
 
 export const DEFAULT_SETTINGS: DailyUnionPluginSettings = {
 	mySetting: 'default',
+	dataVersion: dataVersion_plugin,
 	task_data: {}
 }
 

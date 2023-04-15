@@ -1,5 +1,5 @@
 import DailyUnion from "./main";
-import {randomString} from "./utils/utils";
+import {getMyStandardDateTime_now, randomString} from "./utils/utils";
 
 //[init later] export let dataContainer: dataContainer_interface = new class_dataContainer_test()
 
@@ -7,23 +7,29 @@ export function init_dataContainer(plugin: DailyUnion) {
 	dataContainer = new class_dataContainer(plugin)
 }
 
+export interface interface_taskData {
+	[id: string]: interface_taskData_singleTask
+}
+export interface interface_taskData_singleTask {
+		content: string,
+		status: string,
+		createTime: string,
+		notifyTime?: string,
+		finishTime?: string,
+}
+
 interface dataContainer_interface {
 	// get taskData?(),
 	// set taskData?(),
-	taskData:any
-	query(id: string),
-	create(),
-	updateContent(id: string, content: string),
-	updateStatus(id: string, status: string),
-}
+	taskData: any
 
-export interface interface_taskData {
-	[id: string]: {
-		content: string,
-		status: string,
-		createTime: number,
-		finishTime: number,
-	}
+	query(id: string),
+
+	create(),
+	update(),
+	updateContent(id: string, content: string),
+
+	updateStatus(id: string, status: string),
 }
 
 class class_dataContainer implements dataContainer_interface {
@@ -49,19 +55,25 @@ class class_dataContainer implements dataContainer_interface {
 
 	create() {
 		let id = randomString()
-		this.taskData[id] = {content: "", status: "scheduled", createTime: Date.now(), finishTime: 0}
+		this.taskData[id] = {content: "", status: "scheduled", createTime: getMyStandardDateTime_now()}
 		this.taskData = this.taskData//the row above can't save it
 		return id
 	}
 
+	update(id: string, task) {
+		this.taskData[id] = task
+	}
+
+	//remove later
 	updateContent(id: string, content: string) {
 		console.log(content)
 		this.taskData[id].content = content
 	}
 
+	//remove later
 	updateStatus(id: string, status: string) {
 		this.taskData[id].status = status
-		this.taskData[id].finishTime = Date.now()
+		this.taskData[id].finishTime = getMyStandardDateTime_now()
 	}
 }
 
@@ -96,7 +108,7 @@ class class_dataContainer_test implements dataContainer_interface {
 
 	create() {
 		let id = randomString()
-		this.taskData[id] = {content: "", status: "scheduled", createTime: Date.now(), finishTime: 0}
+		this.taskData[id] = {content: "", status: "scheduled", createTime: getMyStandardDateTime_now()}
 		return id
 	}
 

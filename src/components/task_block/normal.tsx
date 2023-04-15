@@ -1,4 +1,4 @@
-import style from "./task_block.module.less"
+import style from "./taskBlock_normal.module.less"
 import {
 	Avatar,
 	AvatarGroup,
