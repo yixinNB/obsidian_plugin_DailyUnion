@@ -10,6 +10,7 @@ const showWhat_all: interface_show_what = {
 }
 const showWhat_md: interface_show_what = {
 	checkBox: true,
+	time: true,
 	// status:true,
 }
 export function TaskBlocks_all({data}) {

@@ -7,6 +7,7 @@ import {
 	useBoolean,
 } from "@chakra-ui/react";
 import {interface_show_what, TaskBlocks_data_handler} from "./objects";
+import {TaskBlock_edit_dateTime} from "./dateTime";
 
 interface Task_block_component_normal_interface {
 	data: TaskBlocks_data_handler,
@@ -32,7 +33,7 @@ export function Task_block_component_normal({data, show_what}: Task_block_compon
 			</div>
 			<div className={style.tagline} style={(!show_what.time && !show_what.project) ? {display: "none"} : {}}>
 				{show_what.time &&
-            <Tag>11:32</Tag>
+            <TaskBlock_edit_dateTime dataHandler={data}/>
 				}
 				{show_what.project &&
             <Tag size="sm" borderRadius="full" colorScheme="green">

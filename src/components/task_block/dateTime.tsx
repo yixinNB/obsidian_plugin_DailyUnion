@@ -46,7 +46,7 @@ export function TaskBlock_edit_dateTime({dataHandler = new TaskBlocks_data_handl
 					placement='auto'
 					closeOnBlur={true}>
 					<PopoverTrigger>
-						<Tag>{dateTime_tagString}</Tag>
+						<Tag>{dateTime_tagString}</Tag>{/*todo change when "today"*/}
 					</PopoverTrigger>
 					<PopoverContent bg="gray.100" w="auto" pl="3ex" pr="3ex"> {/*bg = 'blue.800' borderColor='blue.800'*/}
 						<PopoverHeader pt={4} fontWeight='bold' border='0'>add email notify time</PopoverHeader>

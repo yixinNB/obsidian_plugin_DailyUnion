@@ -1,7 +1,7 @@
 // data in data.json of plugin root folder
 import DailyUnion from "../main";
 
-export const dataVersion_plugin = 0
+export const dataVersion_plugin = 0//=>settings=>data.json
 
 export function dataVersionCheck_init(plugin: DailyUnion) {
 	let dv=plugin.settings.dataVersion

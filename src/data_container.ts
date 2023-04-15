@@ -26,9 +26,9 @@ interface dataContainer_interface {
 	query(id: string),
 
 	create(),
-	update(),
+	update(id: string, task),
+	//del later
 	updateContent(id: string, content: string),
-
 	updateStatus(id: string, status: string),
 }
 
@@ -120,6 +120,10 @@ class class_dataContainer_test implements dataContainer_interface {
 	updateStatus(id: string, status: string) {
 		this.taskData[id].status = status
 		this.taskData[id].finishTime = Date.now()
+	}
+
+	update(id: string, task) {
+		this.taskData[id]=task
 	}
 }
 
